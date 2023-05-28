@@ -1,6 +1,7 @@
 import json
 import sys
 from flask_cors import CORS
+from socket import gethostname
 from flask import Flask
 from Operadoras import Operadoras
 
@@ -40,7 +41,8 @@ if __name__ == "__main__":
     csv_name = 'Relatorio_cadop.csv'
     try:
         Operadoras.set_singleton(csv_name)
-        app.run(debug=True)
+        if 'liveconsole' not in gethostname():
+            app.run(debug=True)
     except FileNotFoundError:
         print(f"File `{csv_name}` not found. Aborting server...", file=sys.stderr)
     except Exception as err:

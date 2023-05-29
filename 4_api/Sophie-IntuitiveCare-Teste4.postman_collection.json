@@ -1,0 +1,93 @@
+{
+	"info": {
+		"_postman_id": "bda4e76b-dac9-475e-8888-a8858278fe4e",
+		"name": "Sophie-IntuitiveCare-Teste4",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Nome Fantasia - Vida",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://sophienyah.pythonanywhere.com/nome/vida",
+					"protocol": "http",
+					"host": [
+						"sophienyah",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"nome",
+						"vida"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Nome Fantasia - Toyota",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://sophienyah.pythonanywhere.com/nome/VOLvo",
+					"protocol": "http",
+					"host": [
+						"sophienyah",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"nome",
+						"VOLvo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Razão Social - Fundação Saúde Itaú",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://sophienyah.pythonanywhere.com/razao/fundação saúde itaú",
+					"protocol": "http",
+					"host": [
+						"sophienyah",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"razao",
+						"fundação saúde itaú"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Razão Social - Fundarão Saúce Rtaú",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://sophienyah.pythonanywhere.com/razao/fundarão saúde rtaú",
+					"protocol": "http",
+					"host": [
+						"sophienyah",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"razao",
+						"fundarão saúde rtaú"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

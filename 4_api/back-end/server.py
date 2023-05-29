@@ -1,7 +1,6 @@
 import json
 import sys
 from flask_cors import CORS
-from socket import gethostname
 from flask import Flask
 from Operadoras import Operadoras
 
@@ -37,15 +36,15 @@ def operadora_commercial(commercial_name):
         return 'Internal Server Error', 500
 
 
+csv_name = 'Relatorio_cadop.csv'
+try:
+    Operadoras.set_singleton(csv_name)
+except FileNotFoundError:
+    print(f"File `{csv_name}` not found. Aborting server...", file=sys.stderr)
+except Exception as err:
+    print("An error ocurred while initializing server. Aborting server...", file=sys.stderr)
+    print("The error can be found below:", file=sys.stderr)
+    print(err, file=sys.stderr)
+
 if __name__ == "__main__":
-    csv_name = 'Relatorio_cadop.csv'
-    try:
-        Operadoras.set_singleton(csv_name)
-        if 'liveconsole' not in gethostname():
-            app.run(debug=True)
-    except FileNotFoundError:
-        print(f"File `{csv_name}` not found. Aborting server...", file=sys.stderr)
-    except Exception as err:
-        print("An error ocurred while initializing server. Aborting server...", file=sys.stderr)
-        print("The error can be found below:", file=sys.stderr)
-        print(err, file=sys.stderr)
+    app.run(debug=True)

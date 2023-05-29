@@ -71,7 +71,7 @@ export default {
     },
     methods: {
         search: function () {
-            const API_URL = 'http://localhost:5000/'
+            const API_URL = 'http://sophienyah.pythonanywhere.com/'
             let route = ''
             this.isModalVisible = true
             switch (this.tipo) {
@@ -101,6 +101,7 @@ export default {
         },
         closeModal() {
             this.isModalVisible = false
+            this.found_operadoras = []
         }
     }
 }

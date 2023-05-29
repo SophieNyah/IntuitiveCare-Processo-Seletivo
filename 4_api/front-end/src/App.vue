@@ -55,9 +55,9 @@
 
 </template>
 
-<script>
+<script lang="ts">
 import axios from "axios";
-import Operadoras from "@/components/Operadoras.vue";
+import Operadoras from "./components/Operadoras.vue";
 export default {
     name: 'App',
     components: { Operadoras },

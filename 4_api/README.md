@@ -13,5 +13,7 @@ O servidor está hosteado no servidor `http://sophienyah.pythonanywhere.com`, po
 É necessário rodar o front-end, e ele utilizará automáticamente a API no `pythonanywhere`. 
 
 # Rodando o Front-End
+* Ter Node.js instalado na versão `18`
 * `npm install`
-* `npm `
+* `npm run build`
+* `npm run preview`

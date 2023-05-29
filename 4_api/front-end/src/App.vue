@@ -86,15 +86,17 @@ export default {
                 .get(API_URL + route + this.operadora)
                 .then( response => {
                     const data = response.data
-                    console.log(data)
+
+                    // Servidor retorna dados na forma
+                    //   [{'Nome fantasia': {1664: 'E-VIDA'}, ...}],
+                    //   onde o número é o id da linha no dataframe.
+                    // O código abaixo retira esse número
                     for(let i=0; i<data.length; i++) {
-                        console.log('data[i]', data[i])
                         const inner_key = Object.keys(data[i]['Razão Social'])[0]
                         for (let key in data[i]) {
                             data[i][key] = data[i][key][inner_key]
                         }
                     }
-                    console.log(data)
                     this.found_operadoras = data
                 })
                 .catch( err => {})

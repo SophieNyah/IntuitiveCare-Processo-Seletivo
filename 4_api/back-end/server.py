@@ -7,6 +7,7 @@ from Operadoras import Operadoras
 app = Flask(__name__)
 CORS(app)
 
+# Rota que lida com requisições buscando pela Razão Social
 @app.get("/razao/<corporate_name>")
 def operadora_corporate(corporate_name: str):
     exception_base_message = f'[/razao/{corporate_name}]: '
@@ -21,6 +22,7 @@ def operadora_corporate(corporate_name: str):
         print(exception_base_message, excp, file=sys.stderr)
         return 'Internal Server Error', 500
 
+# Rota que lida com requisições buscando pelo Nome Fantasia
 @app.get("/nome/<commercial_name>")
 def operadora_commercial(commercial_name):
     exception_base_message = f'[/razao/{commercial_name}]: '
@@ -36,6 +38,8 @@ def operadora_commercial(commercial_name):
         return 'Internal Server Error', 500
 
 
+# Tenta inicializar o singleton de Operadoras.
+# Esse código está fora da main para que possa ser rodado pelo servidor remoto.
 csv_name = 'Relatorio_cadop.csv'
 try:
     Operadoras.set_singleton(csv_name)

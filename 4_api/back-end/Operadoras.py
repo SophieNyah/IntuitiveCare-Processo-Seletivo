@@ -3,9 +3,14 @@ from pandas import read_csv, DataFrame
 import difflib
 
 
+# Classe singleton, para que seja possível acessar o DataFrame
+#   de qualquer requisição, uma vez que ele tenha sido criado
 class Operadoras:
     _operadoras_table: Optional[DataFrame] = None
 
+    # Como o singleton têm um parâmetro, e também por ter um ponto
+    #   fixo de inicialização (ao iniciar o servidor), julgou-se melhor criar uma
+    #   função separada para sua instanciação
     @classmethod
     def set_singleton(cls, csv_path: str):
         if cls._operadoras_table is None:
@@ -14,12 +19,14 @@ class Operadoras:
         else:
             raise AssertionError("`set_singleton` called on already instantiated singleton")
 
+    # Retorna uma instância do singleton, gerando uma exception caso não tenha sido inicializado
     @classmethod
     def instance(cls) -> DataFrame:
         if cls._operadoras_table is None:
             raise AssertionError("`instance` called on non instantiated singleton")
         return cls._operadoras_table
 
+    # Método para encontrar as operadoras cujo nome mais se assemelha ao nome passado
     @staticmethod
     def find_closest(name: str, field: str):
         name = name.upper()
